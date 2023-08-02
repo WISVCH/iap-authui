@@ -17,7 +17,7 @@ import '../node_modules/firebaseui/dist/firebaseui.css';
 import '../public/style.css';
 
 // Import Firebase dependencies.
-import {FacebookAuthProvider} from 'firebase/auth';
+import {GoogleAuthProvider} from 'firebase/auth';
 // Import FirebaseUI dependencies.
 import * as firebaseui from 'firebaseui';
 // Import GCIP/IAP module.
@@ -36,9 +36,9 @@ function isSafari(): boolean {
 const tenantsConfig = {
   // Project level IdPs flow.
   '*': {
-    displayName: 'My Organization',
+    displayName: "W.I.S.V. 'Christiaan Huygens'",
     signInOptions: [
-      FacebookAuthProvider.PROVIDER_ID,
+      GoogleAuthProvider.PROVIDER_ID,
     ],
     // Do not trigger immediate redirect in Safari without some user
     // interaction.

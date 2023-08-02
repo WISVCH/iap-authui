@@ -44,6 +44,9 @@ const main = HandleBars.compile(`
           </div>
           <div id="tenant">{{tenandId}}</div>
           <div class="claims">
+            <pre id="iap-token">{{iapToken}}</pre>
+          </div>
+          <div class="claims">
             <pre id="gcip-claims">{{gcipClaims}}</pre>
           </div>
           <div class="claims">

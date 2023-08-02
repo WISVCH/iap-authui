@@ -67,6 +67,7 @@ function serveContentForUser(template, req, res, decodedClaims) {
   let gcipClaims = decodedClaims.gcip || null;
   res.set('Content-Type', 'text/html');
   res.end(template({
+    iapToken: req.headers[IAP_JWT_HEADER],
     sub: decodedClaims.sub,
     email: decodedClaims.email,
     emailVerifed: !!(gcipClaims && gcipClaims.email_verified),
