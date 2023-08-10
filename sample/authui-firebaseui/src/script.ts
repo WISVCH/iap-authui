@@ -17,7 +17,8 @@ import '../node_modules/firebaseui/dist/firebaseui.css';
 import '../public/style.css';
 
 // Import Firebase dependencies.
-import {GoogleAuthProvider} from 'firebase/auth';
+import {GoogleAuthProvider, OAuthProvider} from 'firebase/auth';
+
 // Import FirebaseUI dependencies.
 import * as firebaseui from 'firebaseui';
 // Import GCIP/IAP module.
@@ -32,6 +33,8 @@ function isSafari(): boolean {
       userAgent.indexOf('android/') === -1;
 }
 
+const connectProvider = new OAuthProvider('oidc.connect2');
+
 // The list of UI configs for each supported tenant.
 const tenantsConfig = {
   // Project level IdPs flow.
@@ -39,6 +42,7 @@ const tenantsConfig = {
     displayName: "W.I.S.V. 'Christiaan Huygens'",
     signInOptions: [
       GoogleAuthProvider.PROVIDER_ID,
+      connectProvider.PROVIDER_ID,
     ],
     // Do not trigger immediate redirect in Safari without some user
     // interaction.
