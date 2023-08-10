@@ -38,7 +38,7 @@ const surfconnext = new OAuthProvider('oidc.connect2');
 // The list of UI configs for each supported tenant.
 const tenantsConfig = {
   // Project level IdPs flow.
-  '*': {
+  'ch-staff-f9uma': {
     displayName: "W.I.S.V. 'Christiaan Huygens' Google Login",
     signInOptions: [
       GoogleAuthProvider.PROVIDER_ID,
