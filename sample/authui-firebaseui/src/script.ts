@@ -33,16 +33,24 @@ function isSafari(): boolean {
       userAgent.indexOf('android/') === -1;
 }
 
-const connectProvider = new OAuthProvider('oidc.connect2');
+const surfconnext = new OAuthProvider('oidc.connect2');
 
 // The list of UI configs for each supported tenant.
 const tenantsConfig = {
   // Project level IdPs flow.
   '*': {
-    displayName: "W.I.S.V. 'Christiaan Huygens'",
+    displayName: "W.I.S.V. 'Christiaan Huygens' Google Login",
     signInOptions: [
       GoogleAuthProvider.PROVIDER_ID,
-      connectProvider.PROVIDER_ID,
+    ],
+    // Do not trigger immediate redirect in Safari without some user
+    // interaction.
+    immediateFederatedRedirect: !isSafari(),
+  },
+  'surf-test-xsc4d': {
+    displayName: "W.I.S.V. 'Christiaan Huygens' SSO TU Delft Login",
+    signInOptions: [
+      surfconnext.PROVIDER_ID,
     ],
     // Do not trigger immediate redirect in Safari without some user
     // interaction.
