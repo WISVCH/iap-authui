@@ -56,6 +56,15 @@ const tenantsConfig = {
     // interaction.
     immediateFederatedRedirect: !isSafari(),
   },
+  '*': {
+    displayName: "W.I.S.V. 'Christiaan Huygens'",
+    signInOptions: [
+      GoogleAuthProvider.PROVIDER_ID,
+    ],
+    // Do not trigger immediate redirect in Safari without some user
+    // interaction.
+    immediateFederatedRedirect: !isSafari(),
+  },
 };
 
 // Fetch configuration via reserved Firebase Hosting URL.
