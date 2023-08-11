@@ -17,7 +17,7 @@ import '../node_modules/firebaseui/dist/firebaseui.css';
 import '../public/style.css';
 
 // Import Firebase dependencies.
-import {GoogleAuthProvider, OAuthProvider} from 'firebase/auth';
+import {GoogleAuthProvider} from 'firebase/auth';
 
 // Import FirebaseUI dependencies.
 import * as firebaseui from 'firebaseui';
@@ -32,8 +32,6 @@ function isSafari(): boolean {
       userAgent.indexOf('crios/') === -1 &&
       userAgent.indexOf('android/') === -1;
 }
-
-const surfconnext = new OAuthProvider('oidc.connect2');
 
 // The list of UI configs for each supported tenant.
 const tenantsConfig = {
@@ -50,7 +48,9 @@ const tenantsConfig = {
   'surf-test-xsc4d': {
     displayName: "W.I.S.V. 'Christiaan Huygens' SSO TU Delft Login",
     signInOptions: [
-      surfconnext.PROVIDER_ID,
+      {
+        provider: 'oidc.surfconext'
+      }
     ],
     // Do not trigger immediate redirect in Safari without some user
     // interaction.
